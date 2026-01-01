@@ -7,196 +7,787 @@
   <title>Oaklands Fencing & Landscaping | Free Estimates</title>
   <meta name="description" content="Oaklands Fencing & Landscaping — fencing, patios, pathways, turfing, decking, jet washing and more. Call for a free estimate and advice." />
 
-  <!-- Manrope font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Oaklands Fencing & Landscaping" />
+  <meta property="og:description" content="Call today for a free estimate and advice. Fencing • Landscaping • Patios • Pathways • Turfing • Decking • Jet Washing." />
+  <meta property="og:type" content="website" />
 
   <style>
+    /* =========================
+       Oaklands – Single-file site
+       Mobile-first, fast, clean
+    ========================== */
+
     :root{
-      --bg:#0b0f0c;
-      --panel:#101714;
-      --text:#eaf2ec;
-      --muted:#b7c6bc;
-      --brand:#38b26b;
-      --line:rgba(255,255,255,.12);
-      --radius:18px;
-      --shadow:0 18px 45px rgba(0,0,0,.45);
-      --max:1100px;
-      --pad:clamp(14px,2.6vw,22px);
+      --bg: #0b0f0c;
+      --panel: rgba(16, 23, 20, .72);
+      --panelSolid:#101714;
+      --text: #eaf2ec;
+      --muted: #b7c6bc;
+      --brand: #38b26b;
+      --brand2:#2f8f57;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 18px 45px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1100px;
+      --pad: clamp(14px, 2.6vw, 22px);
+      --glass: blur(14px);
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family:"Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
       color:var(--text);
-      background:linear-gradient(180deg,#060806,#0b0f0c);
+      background:
+        radial-gradient(1200px 800px at 20% -10%, rgba(56,178,107,.20), transparent 55%),
+        radial-gradient(900px 700px at 110% 15%, rgba(56,178,107,.12), transparent 45%),
+        linear-gradient(180deg, #060806 0%, #0b0f0c 35%, #0b0f0c 100%);
+      min-height:100vh;
+      overflow-x:hidden;
     }
 
-    h1,h2,h3{letter-spacing:-0.02em}
+    a{ color:inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
 
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:auto;padding:var(--pad)}
+    .wrap{ max-width:var(--max); margin:0 auto; padding: var(--pad); }
 
-    header{
-      position:sticky;top:0;z-index:10;
-      background:rgba(6,8,6,.75);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid var(--line);
+    /* Top notice */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: var(--glass);
+      background: rgba(6, 8, 6, .55);
+      border-bottom: 1px solid var(--line);
     }
+    .topbar .row{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; padding: 10px var(--pad);
+      max-width:var(--max); margin:0 auto;
+    }
+    .brandmark{
+      display:flex; align-items:center; gap:10px; min-width:0;
+    }
+    .logoDot{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(56,178,107,.95), rgba(47,143,87,.85));
+      box-shadow: 0 10px 22px rgba(56,178,107,.22);
+      display:grid; place-items:center; flex:0 0 auto;
+    }
+    .logoDot svg{ width:20px; height:20px; }
+    .brandtext{ min-width:0; }
+    .brandtext b{ display:block; font-size:14px; letter-spacing:.2px; }
+    .brandtext span{ display:block; font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 
     .nav{
-      display:flex;justify-content:space-between;align-items:center;
+      display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end;
     }
+    .nav a{
+      padding:8px 10px; border:1px solid transparent; border-radius:12px;
+      font-size:13px; color:var(--muted);
+    }
+    .nav a:hover{ border-color: var(--line); color:var(--text); background: rgba(255,255,255,.03); }
 
-    .nav a{font-size:13px;color:var(--muted);margin-left:12px}
-    .nav a:hover{color:var(--text)}
-
+    /* Hero */
     .hero{
-      padding:40px 0;
+      position:relative;
+      padding: clamp(18px, 4vw, 34px) 0;
     }
-
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      align-items:stretch;
+    }
     .card{
-      background:rgba(16,23,20,.8);
       border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:24px;
-      box-shadow:var(--shadow);
+      border-radius: var(--radius);
+      background: var(--panel);
+      backdrop-filter: var(--glass);
+      box-shadow: var(--shadow);
+      overflow:hidden;
     }
-
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:14px;
-      border-radius:14px;
-      font-weight:600;
-      border:1px solid var(--line);
-      margin-top:10px;
+    .heroCard{
+      padding: clamp(18px, 3.2vw, 26px);
     }
-
-    .btn.primary{
-      background:linear-gradient(135deg,#38b26b,#2f8f57);
-      color:#07120b;
-      border:none;
+    .kicker{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; color:var(--muted);
+      padding:6px 10px; border:1px solid var(--line); border-radius:999px;
+      background: rgba(255,255,255,.03);
     }
-
-    section{padding:30px 0}
-    .grid{display:grid;gap:16px}
-    @media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
-
-    footer{
-      border-top:1px solid var(--line);
-      padding:24px 0;
-      font-size:13px;
+    .kicker i{
+      width:8px; height:8px; border-radius:99px;
+      background: var(--brand);
+      box-shadow: 0 0 0 4px rgba(56,178,107,.15);
+    }
+    h1{
+      margin:12px 0 8px;
+      font-size: clamp(26px, 4.4vw, 44px);
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+    .sub{
+      margin:0 0 16px;
       color:var(--muted);
+      font-size: clamp(14px, 2.6vw, 17px);
+      line-height:1.55;
+      max-width: 65ch;
+    }
+    .ctaRow{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center; justify-content:center;
+      gap:10px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      font-weight: 650;
+      letter-spacing:.2px;
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(56,178,107,.35); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(56,178,107,.92), rgba(47,143,87,.88));
+      border-color: rgba(56,178,107,.55);
+      box-shadow: 0 16px 34px rgba(56,178,107,.22);
+      color:#07120b;
+    }
+    .btn.primary:hover{ background: linear-gradient(135deg, rgba(56,178,107,.98), rgba(47,143,87,.92)); }
+    .btn small{ display:block; font-weight:600; opacity:.9; }
+
+    .quickFacts{
+      display:grid; gap:10px; margin-top: 16px;
+      grid-template-columns: 1fr;
+    }
+    .fact{
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.02);
+      display:flex; gap:12px; align-items:flex-start;
+    }
+    .fact svg{ width:18px; height:18px; flex:0 0 auto; margin-top:2px; color:var(--brand); }
+    .fact b{ display:block; font-size: 14px; }
+    .fact span{ display:block; font-size: 13px; color: var(--muted); margin-top:2px; }
+
+    /* Services strip */
+    .strip{
+      margin-top:14px;
+      padding: 12px 14px;
+      border-top:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height:1.5;
+    }
+    .strip b{ color: var(--text); }
+
+    /* Sections */
+    section{ padding: 18px 0; }
+    .sectionTitle{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin-bottom: 12px;
+    }
+    .sectionTitle h2{
+      margin:0;
+      font-size: clamp(18px, 3.2vw, 24px);
+      letter-spacing:-.3px;
+    }
+    .sectionTitle p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 60ch;
     }
 
-    .fab{
-      position:fixed;bottom:16px;right:16px;
-      display:grid;gap:10px;
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
-
-    .fab a{
-      width:54px;height:54px;
-      border-radius:16px;
-      background:rgba(16,23,20,.85);
+    .tile{
+      padding: 14px 14px;
+    }
+    .tile h3{
+      margin:0 0 6px;
+      font-size: 16px;
+      letter-spacing:-.2px;
+    }
+    .tile p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height:1.55;
+    }
+    .pillRow{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top: 10px;
+    }
+    .pill{
+      font-size: 12.5px;
+      padding: 8px 10px;
+      border-radius: 999px;
       border:1px solid var(--line);
-      display:grid;place-items:center;
+      color: var(--muted);
+      background: rgba(255,255,255,.02);
+    }
+
+    /* Contact */
+    .contactGrid{
+      display:grid; grid-template-columns: 1fr; gap: 12px;
+    }
+    form{
+      display:grid; gap: 10px;
+      margin-top: 8px;
+    }
+    label{ font-size: 12.5px; color: var(--muted); }
+    input, textarea, select{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{ min-height: 120px; resize: vertical; }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(56,178,107,.55);
+      box-shadow: 0 0 0 4px rgba(56,178,107,.14);
+    }
+    .formRow{ display:grid; grid-template-columns: 1fr; gap: 10px; }
+
+    .note{
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height:1.5;
+      margin-top: 10px;
+    }
+
+    /* Reviews */
+    .embedWrap{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background: rgba(255,255,255,.02);
+    }
+    .embedHint{
+      padding: 12px 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height:1.5;
+    }
+    iframe{ width:100%; border:0; }
+
+    /* Footer */
+    footer{
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 12.5px;
+      border-top: 1px solid var(--line);
+      margin-top: 10px;
+    }
+    .footGrid{
+      display:grid; gap: 10px;
+      grid-template-columns: 1fr;
+      align-items:start;
+    }
+    .footLinks{ display:flex; gap:10px; flex-wrap:wrap; }
+    .footLinks a{ color: var(--muted); border-bottom:1px dashed rgba(183,198,188,.35); }
+    .footLinks a:hover{ color: var(--text); border-bottom-color: rgba(234,242,236,.55); }
+
+    /* Floating action */
+    .fab{
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      display:grid;
+      gap: 10px;
+      z-index: 60;
+    }
+    .fab a{
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(16, 23, 20, .78);
+      backdrop-filter: var(--glass);
+      box-shadow: var(--shadow);
+      display:grid;
+      place-items:center;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .fab a:hover{ transform: translateY(-1px); border-color: rgba(56,178,107,.45); background: rgba(16, 23, 20, .92); }
+    .fab svg{ width:22px; height:22px; color: var(--brand); }
+
+    /* Desktop enhancements */
+    @media (min-width: 900px){
+      .heroGrid{ grid-template-columns: 1.2fr .8fr; }
+      .ctaRow{ grid-template-columns: 1fr 1fr; }
+      .quickFacts{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns: repeat(3, 1fr); }
+      .contactGrid{ grid-template-columns: 1fr 1fr; }
+      .formRow{ grid-template-columns: 1fr 1fr; }
+      .footGrid{ grid-template-columns: 1.2fr .8fr; }
+    }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .btn, .fab a{ transition:none; }
+      .btn:hover, .fab a:hover{ transform:none; }
     }
   </style>
 </head>
 
 <body>
+  <!-- Sticky header -->
+  <div class="topbar" role="banner">
+    <div class="row">
+      <div class="brandmark" aria-label="Oaklands Fencing & Landscaping">
+        <div class="logoDot" aria-hidden="true">
+          <!-- simple tree icon -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 2c-2.8 0-5 2.2-5 5 0 .3 0 .7.1 1-2 .6-3.6 2.5-3.6 4.8C3.5 15.7 5.8 18 8.6 18H11v4h2v-4h2.4c3.2 0 5.8-2.6 5.8-5.8 0-2.7-1.8-4.9-4.3-5.6.1-.4.1-.7.1-1C17 4.2 14.8 2 12 2Z" stroke="currentColor" stroke-width="1.6" />
+          </svg>
+        </div>
+        <div class="brandtext">
+          <b>Oaklands</b>
+          <span>Fencing &amp; Landscaping</span>
+        </div>
+      </div>
 
-<header>
-  <div class="wrap nav">
-    <strong>Oaklands</strong>
-    <div>
-      <a href="#services">Services</a>
-      <a href="#areas">Areas</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Contact</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#areas">Service Areas</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </div>
-</header>
 
-<main>
-  <section class="hero">
-    <div class="wrap">
-      <div class="card">
-        <h1>Fencing & Landscaping done properly</h1>
-        <p style="color:var(--muted)">
-          Free estimates & honest advice. Fencing, patios, turfing, decking and more.
-        </p>
+  <main>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="card heroCard">
+            <span class="kicker"><i></i> Free estimate &amp; advice</span>
+            <h1>Outdoor work done properly — fencing, landscaping, and more.</h1>
+            <p class="sub">
+              Oaklands Fencing &amp; Landscaping delivers tidy, durable work with clear pricing and fast communication.
+              Call today to speak to a knowledgeable team member.
+            </p>
 
-        <a class="btn primary" href="tel:+441403740027">Call 01403 740027</a>
-        <a class="btn" href="https://wa.me/447780133774" target="_blank">WhatsApp us</a>
+            <div class="ctaRow">
+              <!-- Click-to-call (primary) -->
+              <a class="btn primary" href="tel:+441403740027" aria-label="Call Oaklands on 01403 740027">
+                <span>Call (Landline)</span>
+                <small>01403 740027</small>
+              </a>
+
+              <!-- Click-to-call (mobile) -->
+              <a class="btn" href="tel:+447780133774" aria-label="Call Oaklands on 07780 133774">
+                <span>Call (Mobile)</span>
+                <small>07780 133774</small>
+              </a>
+
+              <!-- WhatsApp -->
+              <!-- IMPORTANT: Replace the number below with the correct WhatsApp number if different. -->
+              <a class="btn" id="whatsappBtn" href="https://wa.me/447780133774?text=Hi%20Oaklands%2C%20I%27d%20like%20a%20free%20estimate%20for%20..." target="_blank" rel="noopener">
+                <span>WhatsApp</span>
+                <small>Message us</small>
+              </a>
+
+              <!-- Email -->
+              <a class="btn" href="mailto:oaklandsfencingandlandscaping@gmail.com?subject=Free%20Estimate%20Request&body=Hi%20Oaklands%2C%0A%0AI%27d%20like%20a%20free%20estimate%20for%3A%0A%0AAddress%3A%0AService%20needed%3A%0APreferred%20date%2Ftime%3A%0APhone%3A%0A%0AThanks%2C" aria-label="Email Oaklands">
+                <span>Email</span>
+                <small>oaklandsfencingandlandscaping@gmail.com</small>
+              </a>
+            </div>
+
+            <div class="quickFacts" aria-label="Key points">
+              <div class="fact">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2l8 4v6c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4Z" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M9.5 12.5l1.8 1.8 3.8-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div>
+                  <b>Reliable workmanship</b>
+                  <span>Fences, patios, turfing and more — finished neatly and built to last.</span>
+                </div>
+              </div>
+              <div class="fact">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3 7h18M6 7V5.5C6 4.1 7.1 3 8.5 3h7C16.9 3 18 4.1 18 5.5V7M7 7l.8 14h8.4L17 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                <div>
+                  <b>Clear quotes</b>
+                  <span>Up-front estimate and practical advice before you commit.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="strip">
+              <b>Services:</b>
+              Fencing • Landscaping • Patios • Pathways • Turfing • Hedge Trimming • Artificial Grass • Gravelling • Sleepers • Decking • Jet Washing
+            </div>
+          </div>
+
+          <!-- Right side: quick info card -->
+          <aside class="card heroCard" aria-label="At a glance">
+            <div class="sectionTitle" style="margin-bottom:10px;">
+              <h2 style="margin:0;">At a glance</h2>
+              <p style="margin:0;">Fast contact and simple next steps.</p>
+            </div>
+
+            <div class="tile card" style="background:rgba(255,255,255,.02); box-shadow:none;">
+              <h3>1) Tell us what you need</h3>
+              <p>Share photos and dimensions on WhatsApp, or fill in the form below.</p>
+              <div class="pillRow">
+                <span class="pill">Free estimate</span>
+                <span class="pill">Advice included</span>
+                <span class="pill">Mobile-first</span>
+              </div>
+            </div>
+
+            <div class="tile card" style="background:rgba(255,255,255,.02); box-shadow:none;">
+              <h3>2) Get a clear quote</h3>
+              <p>We confirm scope, materials, timeline and price — no confusion.</p>
+            </div>
+
+            <div class="tile card" style="background:rgba(255,255,255,.02); box-shadow:none;">
+              <h3>3) Book the job</h3>
+              <p>We arrive on time, keep the site tidy, and complete the work to a high standard.</p>
+            </div>
+          </aside>
+        </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section id="services">
-    <div class="wrap">
-      <h2>Services</h2>
-      <div class="grid">
-        <div class="card">Fencing & Gates</div>
-        <div class="card">Landscaping</div>
-        <div class="card">Patios & Pathways</div>
-        <div class="card">Turfing / Artificial Grass</div>
-        <div class="card">Decking & Sleepers</div>
-        <div class="card">Jet Washing</div>
+    <!-- Services -->
+    <section id="services">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <div>
+            <h2>Services</h2>
+            <p>Common jobs we take on. If you do not see your project listed, contact us.</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card tile">
+            <h3>Fencing</h3>
+            <p>Panels, posts, repairs and replacements. Built for durability and clean lines.</p>
+            <div class="pillRow">
+              <span class="pill">New installs</span>
+              <span class="pill">Repairs</span>
+              <span class="pill">Gates</span>
+            </div>
+          </div>
+
+          <div class="card tile">
+            <h3>Landscaping</h3>
+            <p>Practical improvements that make your garden easier to use and maintain.</p>
+            <div class="pillRow">
+              <span class="pill">Design refresh</span>
+              <span class="pill">Ground prep</span>
+              <span class="pill">Finishing</span>
+            </div>
+          </div>
+
+          <div class="card tile">
+            <h3>Patios &amp; Pathways</h3>
+            <p>Smart layouts, solid bases and tidy edges for a premium finish.</p>
+            <div class="pillRow">
+              <span class="pill">Slabs</span>
+              <span class="pill">Edging</span>
+              <span class="pill">Drainage</span>
+            </div>
+          </div>
+
+          <div class="card tile">
+            <h3>Turfing &amp; Artificial Grass</h3>
+            <p>Fresh lawns or low-maintenance artificial grass with proper preparation.</p>
+            <div class="pillRow">
+              <span class="pill">Real turf</span>
+              <span class="pill">Artificial</span>
+              <span class="pill">Levelling</span>
+            </div>
+          </div>
+
+          <div class="card tile">
+            <h3>Hedge Trimming</h3>
+            <p>Seasonal trims and tidy-ups to keep boundaries neat and healthy.</p>
+            <div class="pillRow">
+              <span class="pill">Maintenance</span>
+              <span class="pill">Shape &amp; tidy</span>
+            </div>
+          </div>
+
+          <div class="card tile">
+            <h3>Gravelling • Sleepers • Decking • Jet Washing</h3>
+            <p>Finishing touches, access areas, and cleaning services to refresh your outdoor space.</p>
+            <div class="pillRow">
+              <span class="pill">Gravel areas</span>
+              <span class="pill">Decking</span>
+              <span class="pill">Pressure wash</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="areas">
-    <div class="wrap">
-      <h2>Service Areas</h2>
-      <div class="card">
-        Horsham • Crawley • Southwater • Billingshurst • Surrounding West Sussex
+    <!-- Areas -->
+    <section id="areas">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <div>
+            <h2>Service areas</h2>
+            <p>Edit this list to match the exact towns/areas you cover.</p>
+          </div>
+        </div>
+
+        <div class="card heroCard">
+          <div class="pillRow" aria-label="Areas list">
+            <!-- Replace these with the real service areas -->
+            <span class="pill">Horsham</span>
+            <span class="pill">Crawley</span>
+            <span class="pill">Billingshurst</span>
+            <span class="pill">Southwater</span>
+            <span class="pill">Broadbridge Heath</span>
+            <span class="pill">Roffey</span>
+            <span class="pill">Warnham</span>
+            <span class="pill">West Sussex (Surrounding)</span>
+          </div>
+          <p class="note" style="margin-bottom:0;">
+            If you want, I can also turn this into a simple “postcode checker” section (still single-file) once you tell me your coverage radius or exact postcodes.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="reviews">
-    <div class="wrap">
-      <h2>Reviews</h2>
-      <div class="card">
-        <iframe
-          src="https://www.google.com/maps?q=Horsham&output=embed"
-          height="300"
-          loading="lazy">
-        </iframe>
+    <!-- Reviews -->
+    <section id="reviews">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <div>
+            <h2>Reviews</h2>
+            <p>Embed Google reviews here. If you share your Google Business Profile link or Place ID, you can paste the proper embed.</p>
+          </div>
+        </div>
+
+        <div class="embedWrap">
+          <!-- OPTION A (Most common): Google Maps "Place" embed (shows rating + reviews link)
+               1) Go to Google Maps > find your business listing
+               2) Click "Share" > "Embed a map" > copy the iframe
+               3) Replace the iframe src below
+          -->
+          <iframe
+            title="Oaklands on Google Maps"
+            height="360"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Horsham&output=embed">
+          </iframe>
+
+          <div class="embedHint">
+            <b>Note:</b> Google does not provide a simple “reviews-only” iframe for every listing.
+            The easiest, compliant approach is embedding the Google Maps “Place” view as above.
+            Replace the embed link with your actual business embed from Google Maps to show your real reviews/rating.
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <div class="wrap">
-      <h2>Contact</h2>
-      <div class="card">
-        <p><strong>Phone:</strong> 01403 740027 / 07780 133774</p>
-        <p><strong>Email:</strong> oaklandsfencingandlandscaping@gmail.com</p>
+    <!-- Contact -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <div>
+            <h2>Contact</h2>
+            <p>Call, WhatsApp, or send the form. We reply as quickly as possible.</p>
+          </div>
+        </div>
+
+        <div class="contactGrid">
+          <div class="card heroCard">
+            <h3 style="margin:0 0 10px;">Quick contact</h3>
+
+            <div class="pillRow" style="margin-top:0;">
+              <a class="pill" href="tel:+441403740027">Call: 01403 740027</a>
+              <a class="pill" href="tel:+447780133774">Mobile: 07780 133774</a>
+              <a class="pill" href="mailto:oaklandsfencingandlandscaping@gmail.com">Email us</a>
+              <a class="pill" href="https://wa.me/447780133774?text=Hi%20Oaklands%2C%20I%27d%20like%20a%20free%20estimate%20for%20..." target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+
+            <p class="note">
+              For the fastest quote, include: (1) photos, (2) approximate measurements, (3) your postcode, and (4) the service you want.
+            </p>
+
+            <div class="card tile" style="background:rgba(255,255,255,.02); box-shadow:none;">
+              <h3>Business details</h3>
+              <p>
+                <b>Oaklands Fencing &amp; Landscaping</b><br />
+                Tel: <a href="tel:+441403740027" style="text-decoration:underline; text-decoration-style:dotted;">01403 740027</a><br />
+                Mobile: <a href="tel:+447780133774" style="text-decoration:underline; text-decoration-style:dotted;">07780 133774</a><br />
+                Email: <a href="mailto:oaklandsfencingandlandscaping@gmail.com" style="text-decoration:underline; text-decoration-style:dotted;">oaklandsfencingandlandscaping@gmail.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="card heroCard">
+            <h3 style="margin:0 0 10px;">Request a free estimate</h3>
+
+            <!-- Form options:
+                 - Mailto (works without a backend, but depends on user's mail app)
+                 - Formspree / Netlify Forms (recommended)
+                 Below is a SIMPLE mailto fallback + JS to format.
+            -->
+            <form id="quoteForm">
+              <div class="formRow">
+                <div>
+                  <label for="name">Name</label>
+                  <input id="name" name="name" autocomplete="name" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="e.g. 07..." required />
+                </div>
+              </div>
+
+              <div class="formRow">
+                <div>
+                  <label for="postcode">Postcode</label>
+                  <input id="postcode" name="postcode" autocomplete="postal-code" placeholder="e.g. RH12 ..." required />
+                </div>
+                <div>
+                  <label for="service">Service</label>
+                  <select id="service" name="service" required>
+                    <option value="" selected disabled>Select a service</option>
+                    <option>Fencing</option>
+                    <option>Landscaping</option>
+                    <option>Patios</option>
+                    <option>Pathways</option>
+                    <option>Turfing</option>
+                    <option>Artificial grass</option>
+                    <option>Hedge trimming</option>
+                    <option>Gravelling</option>
+                    <option>Sleepers</option>
+                    <option>Decking</option>
+                    <option>Jet washing</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="details">Project details</label>
+                <textarea id="details" name="details" placeholder="Tell us what you need. Add approximate sizes, materials, and any timing requirements." required></textarea>
+              </div>
+
+              <button class="btn primary" type="submit">Send request</button>
+
+              <p class="note" style="margin:0;">
+                This button uses your email app (no backend). If you want it to submit directly to an inbox, I will swap this to Formspree or Netlify Forms in 60 seconds.
+              </p>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<footer>
-  <div class="wrap">
-    © <span id="year"></span> Oaklands Fencing & Landscaping
+    <div class="wrap">
+      <footer>
+        <div class="footGrid">
+          <div>
+            <b style="color:var(--text);">Oaklands Fencing &amp; Landscaping</b><br />
+            Free estimate &amp; advice • Fencing • Landscaping • Patios • Pathways • Turfing • Decking • Jet Washing
+          </div>
+          <div class="footLinks" aria-label="Footer links">
+            <a href="#services">Services</a>
+            <a href="#areas">Service areas</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+        <div style="margin-top:10px;">
+          © <span id="year"></span> Oaklands. All rights reserved.
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Floating actions -->
+  <div class="fab" aria-label="Quick actions">
+    <a href="tel:+441403740027" aria-label="Call Oaklands (landline)">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6.5 3.5l3 1.2c.7.3 1 1.1.8 1.8l-.8 2.4c-.2.6 0 1.2.5 1.6l2.1 1.7c.5.4 1.2.5 1.8.2l2.2-1c.7-.3 1.5 0 1.9.7l1.3 2.6c.3.7.1 1.5-.5 2-1 .9-2.2 1.4-3.5 1.4-7 0-12.7-5.7-12.7-12.7 0-1.3.5-2.5 1.4-3.5.5-.6 1.3-.8 2-.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <a href="https://wa.me/447780133774?text=Hi%20Oaklands%2C%20I%27d%20like%20a%20free%20estimate%20for%20..." target="_blank" rel="noopener" aria-label="Message Oaklands on WhatsApp">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20 11.7c0 4.3-3.6 7.8-8 7.8-1.3 0-2.6-.3-3.7-.9L4 20l1.5-4c-.7-1.2-1-2.6-1-4.3C4.5 7.4 8 4 12 4s8 3.4 8 7.7Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M9.2 9.2c.2-.5.4-.6.8-.6h.6c.2 0 .4 0 .6.4l.8 1.8c.1.3.1.5 0 .7l-.3.5c-.1.2-.2.4 0 .6.3.6 1.2 1.5 2.3 2 .2.1.4.1.6-.1l.6-.6c.2-.2.4-.2.7-.1l2 .8c.3.1.5.4.4.7-.2.7-.9 1.4-1.6 1.6-.6.2-1.3.2-2-.1-2.7-1.1-4.7-3.6-5.5-5.6-.2-.6-.2-1.2 0-1.9Z" fill="currentColor" opacity=".55"/>
+      </svg>
+    </a>
   </div>
-</footer>
 
-<div class="fab">
-  <a href="tel:+441403740027">📞</a>
-  <a href="https://wa.me/447780133774" target="_blank">💬</a>
-</div>
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+    // Mailto form submission (no backend)
+    const form = document.getElementById("quoteForm");
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
 
+      const name = (document.getElementById("name").value || "").trim();
+      const phone = (document.getElementById("phone").value || "").trim();
+      const postcode = (document.getElementById("postcode").value || "").trim();
+      const service = (document.getElementById("service").value || "").trim();
+      const details = (document.getElementById("details").value || "").trim();
+
+      const subject = encodeURIComponent("Free Estimate Request — " + (service || "Outdoor work"));
+      const body = encodeURIComponent(
+        "Hi Oaklands,\n\n" +
+        "I'd like a free estimate.\n\n" +
+        "Name: " + name + "\n" +
+        "Phone: " + phone + "\n" +
+        "Postcode: " + postcode + "\n" +
+        "Service: " + service + "\n\n" +
+        "Project details:\n" + details + "\n\n" +
+        "Thanks,\n" + name
+      );
+
+      // Send via email client
+      window.location.href = "mailto:oaklandsfencingandlandscaping@gmail.com?subject=" + subject + "&body=" + body;
+    });
+
+    // Optional: adjust WhatsApp text to include the chosen service (nice UX)
+    const whatsappBtn = document.getElementById("whatsappBtn");
+    const serviceSelect = document.getElementById("service");
+    const postcodeInput = document.getElementById("postcode");
+
+    function updateWhatsAppLink(){
+      const service = (serviceSelect.value || "a quote").trim();
+      const postcode = (postcodeInput.value || "").trim();
+      const msg = `Hi Oaklands, I'd like a free estimate for ${service}. Postcode: ${postcode}.`;
+      whatsappBtn.href = "https://wa.me/447780133774?text=" + encodeURIComponent(msg);
+    }
+    serviceSelect.addEventListener("change", updateWhatsAppLink);
+    postcodeInput.addEventListener("input", updateWhatsAppLink);
+  </script>
 </body>
 </html>
