@@ -848,33 +848,5 @@
     serviceSelect.addEventListener("change", updateWhatsAppLink);
     postcodeInput.addEventListener("input", updateWhatsAppLink);
   </script>
-  <script>
-    const gallery = document.querySelector('.scrollGallery');
-    let scrolling = true;
-    let scrollAmount = 0;
-    const speed = 0.3;
-
-    if (gallery) {
-      gallery.addEventListener('mouseenter', () => scrolling = false);
-      gallery.addEventListener('mouseleave', () => scrolling = true);
-      gallery.addEventListener('touchstart', () => scrolling = false);
-      gallery.addEventListener('touchend', () => scrolling = true);
-
-      function autoScroll() {
-        if (scrolling) {
-          scrollAmount += speed;
-          gallery.scrollLeft = scrollAmount;
-
-          if (gallery.scrollLeft + gallery.clientWidth >= gallery.scrollWidth - 1) {
-          scrollAmount = 0;
-          }
-        }
-        requestAnimationFrame(autoScroll);
-      }
-
-      autoScroll();
-    }
-</script>
-
 </body>
 </html>
